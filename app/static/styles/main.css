@@ -1,0 +1,27 @@
+body {
+  margin: 0;
+  padding-bottom: 60px; /* Adjust according to footer height */
+  min-height: 100vh;
+  position: relative;
+}
+
+main {
+  padding-bottom: 60px; /* Adjust according to footer height */
+}
+
+footer {
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+}
+
+/* Disable spinners in number input elements */
+input[type="number"] {
+  .no-arrows::-webkit-outer-spin-button,
+  .no-arrows::-webkit-inner-spin-button {
+    -webkit-appearance: none;
+    margin: 0;
+  }
+  -moz-appearance: textfield;
+  appearance: textfield;
+}

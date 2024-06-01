@@ -1,0 +1,83 @@
+{% extends "base.html.jinja" %}
+{% block content %}
+
+<section>
+    <h1>Weather Forecast</h1>
+    <p class="mb-2">
+        This app predicts weather conditions using machine learning based on a few
+        variables input by the user.
+    </p>
+
+    <p class="mb-2">Firstly, the weather predicting model needs to be trained:</p>
+    <form action="{{url_for('index')}}" method="POST">
+        {% if train_button_enabled %}
+        <button type="submit" name="train" class="btn btn-primary mb-3">
+            Train model
+        </button>
+        {% else %}
+        <div class="tooltip-wrapper d-inline-block mb-3" data-bs-toggle="tooltip" data-bs-placement="top" data-bs-title="The dataset file is missing.
+            The dataset must be placed in the path according to the 'global_variables.py' file.">
+            <button type="submit" name="train" class="btn btn-primary disabled">
+                Train model
+            </button>
+        </div>
+        {% endif %}
+    </form>
+</section>
+
+<section>
+    <p class="mb-2">Afterwards, the variables used to predict the weather can be input:</p>
+    <form action="{{url_for('index')}}" method="POST" class="mb-3">
+        <div class="row mb-3">
+            <div class="col-sm-3 text-center">
+                <label for="temperature-input" class="form-label fw-bold">Temperature &#40;&#176;C&#41;</label>
+                <input name="temperature-input" id="temperature-input" type="number" class="form-control" value="0" />
+            </div>
+
+            <div class="col-sm-3 text-center">
+                <label for="humidity-input" class="form-label fw-bold">Humidity &#40;%&#41;</label>
+                <input name="humidity-input" id="humidity-input" type="number" class="form-control" value="0" />
+            </div>
+
+            <div class="col-sm-3 text-center">
+                <label for="precipitation-input" class="form-label fw-bold">Precipitation &#40;mm&#41;</label>
+                <input name="precipitation-input" id="precipitation-input" type="number" class="form-control"
+                    value="0" />
+            </div>
+
+            <div class="col-sm-3 text-center">
+                <label for="wind-speed-input" class="form-label fw-bold">Wind Speed &#40;km/h&#41;</label>
+                <input name="wind-speed-input" id="wind-speed-input" type="number" class="form-control" value="0" />
+            </div>
+        </div>
+
+        <p class="mb-2">Finally, weather conditions can be predicted:</p>
+        {% if predict_button_enabled %}
+        <button name="predict" type="submit" class="btn btn-primary">
+            Predict weather conditions
+        </button>
+        {% else %}
+        <div class="tooltip-wrapper d-inline-block" data-bs-toggle="tooltip" data-bs-placement="top"
+            data-bs-title="The model must be trained first. Press the 'Train model' button.">
+            <button name="predict" type="submit" class="btn btn-primary disabled">
+                Predict weather conditions
+            </button>
+        </div>
+        {% endif %}
+    </form>
+</section>
+
+<section>
+    {% if weather_conditions != "" %}
+    <h2>Predicted weather conditions:</h2>
+    <div class="d-flex align-items-center mt-3 mb-2">
+        <h3 class="me-1">{{ weather_conditions }}</h3>
+        <img src="static/assets/icons/weather-condition-{{ weather_conditions.lower() }}.png" alt="logo" width="40"
+            height="40" />
+    </div>
+
+    <h5 class="fst-italic">{{ weather_conditions_description }}</h5>
+    {% endif %}
+</section>
+
+{% endblock content %}

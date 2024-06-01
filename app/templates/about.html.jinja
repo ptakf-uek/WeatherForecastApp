@@ -1,0 +1,63 @@
+{% extends "base.html.jinja" %}
+{% block content %}
+
+<section>
+    <h1>About the app</h1>
+    <p>Weather Forecast App uses machine learning (logistic regression model) to forecast weather based on passed data
+        and display it in a user-friendly GUI. Data analysis is conducted using Python libraries such as pandas, numpy
+        and scikit-learn. GUI is created using Flask.
+    </p>
+
+    <p>App's repository: <a class="text-decoration-none"
+            href="https://github.com/ptakf-uek/WeatherForecastApp">WeatherForecastApp</a></p>
+</section>
+
+<section class="mt-4">
+    <h2>About the dataset</h2>
+    <p>This dataset contains synthetic weather data generated for ten different locations, including New York, Los
+        Angeles, Chicago, Houston, Phoenix, Philadelphia, San Antonio, San Diego, Dallas, and San Jose. The data
+        includes information about temperature, humidity, precipitation, and wind speed, with 1 million data points
+        generated for each parameter.
+    </p>
+
+    <p>Dataset source: <a class="text-decoration-none"
+            href="https://www.kaggle.com/datasets/prasad22/weather-data/data">
+            Weather Data</a>
+    </p>
+</section>
+
+<section>
+    <h4>Dataset columns:</h4>
+
+    <ul>
+        <li><span class="fw-bold">Location:</span> The city where the weather data was simulated.</li>
+        <li><span class="fw-bold">Date_Time:</span> The date and time when the weather data was recorded.</li>
+        <li><span class="fw-bold">Temperature_C:</span> The temperature in Celsius at the given location and time.
+        </li>
+        <li><span class="fw-bold">Humidity_pct:</span> The humidity in percentage at the given location and time.
+        </li>
+        <li><span class="fw-bold">Precipitation_mm:</span> The precipitation in millimeters at the given location
+            and time.</li>
+        <li><span class="fw-bold">Wind_Speed_kmh:</span> The wind speed in kilometers per hour at the given location
+            and time.</li>
+        <li><span class="fw-bold">Weather_Condition:</span> The weather condition, e.g. Sunny, Rainy.</li>
+    </ul>
+</section>
+
+<section>
+    <h4>Additional information:</h4>
+
+    <ul>
+        <li><span class="fw-bold">Variability and Complexity:</span> The dataset incorporates variability and
+            complexity to simulate realistic weather patterns. For example, adjustments have been made to
+            temperature and precipitation based on seasonal variations observed in certain locations. In New York,
+            higher temperatures and precipitation are simulated during the summer months, while in Phoenix, lower
+            temperatures and increased precipitation are simulated during the winter months.</li>
+        <li><span class="fw-bold">Data Generation Method:</span> The dataset was generated using Python's Faker
+            library to create synthetic weather data for each location. Random values within realistic ranges were
+            generated for temperature, humidity, precipitation, and wind speed, with adjustments made to reflect
+            seasonal variations.</li>
+    </ul>
+</section>
+
+{% endblock content %}

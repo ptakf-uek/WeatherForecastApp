@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Weather Forecast App</title>
+    <link rel="icon" href="/static/assets/icons/favicon.ico">
+    <link rel="stylesheet" href="/static/styles/bootstrap.min.css">
+    <link rel="stylesheet" href="/static/styles/main.css">
+    <script src="{{ url_for('serve_static', filename='bootstrap.bundle.min.js') }}" defer></script>
+    <script src="{{ url_for('serve_static', filename='main.js') }}" defer></script>
+</head>
+
+<body>
+    <header class="navbar bg-primary navbar-expand-lg shadow p-2">
+        <div class="container-fluid">
+            <a href="/" class="navbar-brand text-light d-flex align-items-center">
+                <img src="/static/assets/icons/favicon.ico" alt="logo" width="50" height="50" />
+                <h3 class="ms-1">Weather Forecast App</h3>
+            </a>
+
+            <button class="navbar-toggler navbar-dark" type="button" data-bs-toggle="collapse"
+                data-bs-target="#navbarLinks">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+
+            <div class="collapse navbar-collapse d-lg-flex justify-content-lg-end" id="navbarLinks">
+                <div class="navbar-nav">
+                    <a href="/" class="nav-link text-light fs-5">Home</a>
+                    <a href="/sampledata" class="nav-link text-light fs-5">Sample Data</a>
+                    <a href="/about" class="nav-link text-light fs-5">About</a>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <main class="container my-3">
+        {% block content %}
+        <p>base.html.jinja</p>
+        {% endblock content %}
+    </main>
+
+    <footer class="bg-primary d-flex justify-content-center shadow p-2 text-light">
+        <h5>
+            Ptak Filip &copy; 2024
+        </h5>
+    </footer>
+</body>
+
+</html>
